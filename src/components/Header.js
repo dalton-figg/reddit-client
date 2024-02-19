@@ -10,8 +10,7 @@ export default function Header() {
   }
 
   const handleChange = e => {
-    let keyword = e.target.value;
-    dispatch(changeSearch(keyword));
+    dispatch(changeSearch(e.target.value));
   }
 
   return (
