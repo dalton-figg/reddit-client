@@ -2,6 +2,7 @@
 
 :root {
   --clr-neutral-999: hsl(255, 100%, 100%);
+  --clr-neutral-900: hsl(0, 0%, 95%);
   --clr-neutral-100: hsl(0, 0%, 0%);
 
   --fontstack-system-sans: ui-sans-serif, system-ui, sans-serif,
@@ -36,6 +37,7 @@ html {
 
 body {
   font-family: var(--fontstack-system-sans);
+  background: var(--clr-neutral-900);
   line-height: 1.5;
 }
 
@@ -81,4 +83,72 @@ select {
   :has(:target) {
     scroll-behavior: smooth;
   }
+}
+
+/* Primary Header */
+
+.primary-header {
+  padding: 1.5rem;
+  background: var(--clr-neutral-999);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.primary-header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Main Content */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Posts */
+
+.posts {
+  display: grid;
+  place-items: center;
+  gap: 2.5rem;
+  padding-block: 5rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--clr-neutral-999);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.post__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post__comments{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
