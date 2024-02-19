@@ -5,8 +5,11 @@ import { changePosts } from '../features/postsSlice';
 import Loading from './Loading'
 
 export default function Posts() {
+  // Store based variables
   const posts = useSelector((state) => state.posts);
   const selectionFilter = useSelector((state) => state.selectionFilter);
+  const searchFilter = useSelector(state => state.searchFilter);
+
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
@@ -28,6 +31,8 @@ export default function Posts() {
 
     getData();
   }, [selectionFilter]);
+
+  // Include a 'loading' screen to breakup the delay
 
   return (
     <section className="posts">

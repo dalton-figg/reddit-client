@@ -6,7 +6,6 @@ export default function Post(data) {
   return (
     <article className="post">
       <h2>{title}</h2>
-      <img></img>
       <hr></hr>
       <div className="post__details">
         <p>Posted by {author}</p>

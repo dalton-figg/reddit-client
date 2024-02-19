@@ -18,7 +18,9 @@ export default function Sidebar() {
         <select className='sidebar-select' onChange={handleChange}>
           <option>JavaScript</option>
           <option>Photography</option>
+          <option>Python</option>
           <option>Cats</option>
+          <option>React</option>
         </select>
       </form>
     </aside>
