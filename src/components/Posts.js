@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePosts } from '../features/postsSlice';
+import Loading from './Loading'
 
 export default function Posts() {
   const posts = useSelector((state) => state.posts);
   const selectionFilter = useSelector((state) => state.selectionFilter);
   const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true);
 
   // Use effect callback function that fires once when the component mounts to get the Reddit API data and update the store
@@ -29,9 +31,7 @@ export default function Posts() {
 
   return (
     <section className="posts">
-      {loading ? (
-        <p>Loading...</p> // Show loading indicator while fetching data
-      ) : (
+      {loading ? <Loading /> : (
         posts.map((post) => (
           <Post key={post.data.id} data={post.data} />
         ))
