@@ -27,19 +27,24 @@ export default function Posts() {
 
       // Filter by if the title of the post includes the current search filter
 
-      dispatch(
-        changePosts(
-          data.data.children.filter((item) =>
-            item.data.title.includes(searchFilter)
-          )
-        )
-      );
+      dispatch(changePosts(data.data.children));
 
       setLoading(false);
     };
 
     getData();
-  }, [selectionFilter, searchFilter]);
+  }, [selectionFilter]);
+
+  // Using a seperate effect so that the data does not have to be re-fetched if not needed, it does need to be fetched again if the subreddit changes, but when searching within one we can
+  // improve the efficency by just applying the filter
+
+  useEffect(() => {
+    dispatch(
+      changePosts(
+        posts.filter((item) => item.data.title.includes(searchFilter))
+      )
+    );
+  }, [searchFilter]);
 
   // Include a 'loading' screen to breakup the delay
 
