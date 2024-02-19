@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Post from './Post';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePosts } from '../features/postsSlice';
-import Loading from './Loading'
+import Loading from './Loading';
 
 export default function Posts() {
   // Store based variables
   const posts = useSelector((state) => state.posts);
   const selectionFilter = useSelector((state) => state.selectionFilter);
-  const searchFilter = useSelector(state => state.searchFilter);
+  const searchFilter = useSelector((state) => state.searchFilter);
 
   const dispatch = useDispatch();
 
@@ -25,21 +25,30 @@ export default function Posts() {
 
       const data = await response.json();
 
-      dispatch(changePosts(data.data.children));
+      // Filter by if the title of the post includes the current search filter
+
+      dispatch(
+        changePosts(
+          data.data.children.filter((item) =>
+            item.data.title.includes(searchFilter)
+          )
+        )
+      );
+
       setLoading(false);
     };
 
     getData();
-  }, [selectionFilter]);
+  }, [selectionFilter, searchFilter]);
 
   // Include a 'loading' screen to breakup the delay
 
   return (
     <section className="posts">
-      {loading ? <Loading /> : (
-        posts.map((post) => (
-          <Post key={post.data.id} data={post.data} />
-        ))
+      {loading ? (
+        <Loading />
+      ) : (
+        posts.map((post) => <Post key={post.data.id} data={post.data} />)
       )}
     </section>
   );
