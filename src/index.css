@@ -5,6 +5,8 @@
   --clr-neutral-900: hsl(0, 0%, 95%);
   --clr-neutral-100: hsl(0, 0%, 0%);
 
+  --clr-primary-500: hsl(200, 67%, 55%);
+
   --fontstack-system-sans: ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --fontstack-system-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times,
@@ -93,6 +95,15 @@ select {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.05);
 }
 
+.primary-header__title{
+  display: flex;
+  align-items: center;
+}
+
+.primary-header__title svg {
+  margin-right: 1rem;
+}
+
 .primary-header__content {
   display: flex;
   justify-content: space-between;
@@ -175,4 +186,10 @@ select {
 
 .sidebar-select {
   padding: 0.5rem;
+}
+
+/* Utility Classes */
+
+.clr-primary-500 {
+  color: var(--clr-primary-500);
 }
