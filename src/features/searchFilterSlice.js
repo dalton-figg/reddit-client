@@ -6,7 +6,7 @@ export const searchFilterSlice = createSlice({
 
   reducers: {
     changeSearch: (state, action) => {
-      state = action.payload;
+      return action.payload !== undefined ? action.payload : state;
     },
   },
 });

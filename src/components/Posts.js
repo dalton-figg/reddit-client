@@ -5,6 +5,7 @@ import { changePosts } from '../features/postsSlice';
 
 export default function Posts() {
   const posts = useSelector((state) => state.posts);
+  const selectionFilter = useSelector(state => state.selectionFilter);
   const dispatch = useDispatch();
 
   // Use effect callback function that fires once when the component mounts to get the Reddit API data and update the store
@@ -12,7 +13,7 @@ export default function Posts() {
   useEffect(() => {
     const getData = async () => {
       const response = await fetch(
-        'https://www.reddit.com/search.json?q=cake%20recipes'
+        `https://www.reddit.com/r/${selectionFilter}.json`
       );
 
       const data = await response.json();
@@ -21,7 +22,7 @@ export default function Posts() {
     };
 
     getData();
-  }, []);
+  }, [selectionFilter]);
 
   return (
     <section className="posts">

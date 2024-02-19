@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Post(data) {
   const { title, author, num_comments } = data.data;
-  
+
   return (
     <article className="post">
       <h2>{title}</h2>

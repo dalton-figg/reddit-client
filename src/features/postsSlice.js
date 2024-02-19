@@ -5,7 +5,7 @@ export const postsSlice = createSlice({
   initialState: [],
   reducers: {
     changePosts: (state, action) => {
-      state.push(...action.payload);
+      return [...action.payload];
     },
   },
 });

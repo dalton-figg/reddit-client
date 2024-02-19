@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const selectionFilterSlice = createSlice({
   name: 'selectionFilter',
-  initialState: '',
+  initialState: 'JavaScript',
   reducers: {
     changeSelection: (state, action) => {
-      state = action.payload;
+      return action.payload !== undefined ? action.payload : state;
     },
   },
 });
