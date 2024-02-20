@@ -8,7 +8,12 @@ export default function Post(data) {
 
   const handleClick = () => setOpenModal(true);
 
-  console.log(data.data);
+  const checkForImage = () => {
+    if (data.data.thumbnail) {
+      console.log(data.data.thumbnail);
+      return <img src={data.data.thumbnail} width="300" height="300"></img>;
+    }
+  };
 
   return (
     <>
@@ -25,6 +30,7 @@ export default function Post(data) {
 
         <div className="post__content">
           <h2>{title}</h2>
+          {checkForImage()}
           <hr></hr>
           <div className="post__details">
             <p>Posted by {author}</p>
