@@ -14,11 +14,9 @@ root.render(
   </Provider>
 );
 
-// TODO: create tests
 // TODO: complete modal implementation
 // TODO: fix search bar
 // TODO: refactor HTML/CSS of posts to show upvotes/down votes
-
 
 // TODO: potential sorting system?
 // TODO: improved loading screen?
