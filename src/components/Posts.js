@@ -5,7 +5,7 @@ import { changePosts } from '../features/postsSlice';
 import Loading from './Loading';
 
 export default function Posts() {
-  // Store based variables
+  // Store based variablese
   const posts = useSelector((state) => state.posts);
   const selectionFilter = useSelector((state) => state.selectionFilter);
   const searchFilter = useSelector((state) => state.searchFilter);
@@ -13,6 +13,7 @@ export default function Posts() {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
+  const [filteredPosts, setFilteredPosts] = useState([]);
 
   // Use effect callback function that fires once when the component mounts to get the Reddit API data and update the store
 
@@ -39,11 +40,14 @@ export default function Posts() {
   // improve the efficency by just applying the filter
 
   useEffect(() => {
-    const filteredPosts = posts.filter((post) =>
-      post.data.title.includes(searchFilter)
-    );
-    dispatch(changePosts(filteredPosts));
-  }, [searchFilter]);
+    searchFilter
+      ? setFilteredPosts(
+          posts.filter((post) =>
+            post.data.title.toLowerCase().includes(searchFilter.toLowerCase())
+          )
+        )
+      : setFilteredPosts(posts);
+  }, [searchFilter, posts]);
 
   // Include a 'loading' screen to breakup the delay
 
@@ -52,7 +56,9 @@ export default function Posts() {
       {loading ? (
         <Loading />
       ) : (
-        posts.map((post) => <Post key={post.data.id} data={post.data} />)
+        filteredPosts.map((post) => (
+          <Post key={post.data.id} data={post.data} />
+        ))
       )}
     </section>
   );

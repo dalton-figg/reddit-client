@@ -2,7 +2,7 @@ import React from 'react';
 import { changeSelection } from '../features/selectionFilterSlice';
 import { useDispatch } from 'react-redux';
 
-const subredditOptions = ['JavaScript', 'Photography', 'Python', 'Cats', 'React'];
+const subredditOptions = ['JavaScript', 'Photography', 'Python', 'Cats', 'React', 'Food'];
 
 export default function Sidebar() {
   const dispatch = useDispatch();
