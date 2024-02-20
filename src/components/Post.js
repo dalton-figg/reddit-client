@@ -9,8 +9,7 @@ export default function Post(data) {
   const handleClick = () => setOpenModal(true);
 
   const checkForImage = () => {
-    if (data.data.thumbnail) {
-      console.log(data.data.thumbnail);
+    if (data.data.thumbnail && data.data.thumbnail !== 'self') {
       return <img src={data.data.thumbnail} width="300" height="300"></img>;
     }
   };
