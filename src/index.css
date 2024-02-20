@@ -149,13 +149,15 @@ select {
 }
 
 .post {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 1.5rem;
   max-width: 650px;
   width: 100%;
   background: var(--clr-neutral-999);
   border-radius: 0.5rem;
   padding: 1.5rem;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
 }
 
 .post:where(:focus-visible, :hover) {
@@ -214,4 +216,8 @@ select {
   position: fixed;
   inset: 0;
   background: hsla(0, 0%, 0%, 0.6);
+}
+
+.post--modal{
+  min-width: min-content;
 }
