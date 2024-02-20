@@ -5,8 +5,9 @@ import { changePosts } from '../features/postsSlice';
 import Loading from './Loading';
 
 export default function Posts() {
-  // Store based variablese
+  // Store based variables
   const posts = useSelector((state) => state.posts);
+
   const selectionFilter = useSelector((state) => state.selectionFilter);
   const searchFilter = useSelector((state) => state.searchFilter);
 
