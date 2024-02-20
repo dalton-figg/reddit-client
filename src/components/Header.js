@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { changeSearch } from '../features/searchFilterSlice';
 import { useDispatch } from 'react-redux';
 
 export default function Header() {
+
+  const [value, setValue] = useState('');
+
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => e.preventDefault();
-  const handleChange = (e) => dispatch(changeSearch(e.target.value));
+  
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    dispatch(changeSearch(e.target.value))
+  };
 
   return (
-    <header className="primary-header">
+    <header className="primary-header" data-testid="header">
       <div className="primary-header__content">
         <h1 className="primary-header__title">
           <svg viewBox="0 0 448 512" width="25" height="25">
@@ -28,6 +35,7 @@ export default function Header() {
             placeholder="Search for a post..."
             className="primary-header__input"
             onChange={handleChange}
+            value={value}
           ></input>
         </form>
       </div>

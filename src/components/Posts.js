@@ -49,7 +49,7 @@ export default function Posts() {
   // Include a 'loading' screen to breakup the delay
 
   return (
-    <section className="posts">
+    <section className="posts" data-testid="posts">
       {loading ? (
         <Loading />
       ) : (

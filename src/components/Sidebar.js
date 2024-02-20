@@ -7,7 +7,7 @@ export default function Sidebar() {
   const handleChange = (e) => dispatch(changeSelection(e.target.value));
 
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" data-testid="sidebar">
       <h2>Select a subreddit</h2>
       <form>
         <select className="sidebar-select" onChange={handleChange}>
