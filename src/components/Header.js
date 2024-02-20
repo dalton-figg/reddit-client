@@ -3,16 +3,15 @@ import { changeSearch } from '../features/searchFilterSlice';
 import { useDispatch } from 'react-redux';
 
 export default function Header() {
-
   const [value, setValue] = useState('');
 
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => e.preventDefault();
-  
+
   const handleChange = (e) => {
     setValue(e.target.value);
-    dispatch(changeSearch(e.target.value))
+    dispatch(changeSearch(e.target.value));
   };
 
   return (

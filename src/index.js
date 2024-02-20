@@ -13,8 +13,3 @@ root.render(
     <App />
   </Provider>
 );
-
-// TODO: fix search bar
-
-// TODO: potential sorting system?
-// TODO: improved loading screen?

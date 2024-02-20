@@ -10,8 +10,14 @@ export default function Sidebar() {
     <aside className="sidebar" data-testid="sidebar">
       <h2>Select a subreddit</h2>
       <form>
-        <label htmlFor='selection' className='sr-only'>Select a subreddit</label>
-        <select className="sidebar-select" id='selection' onChange={handleChange}>
+        <label htmlFor="selection" className="sr-only">
+          Select a subreddit
+        </label>
+        <select
+          className="sidebar-select"
+          id="selection"
+          onChange={handleChange}
+        >
           <option>JavaScript</option>
           <option>Photography</option>
           <option>Python</option>
