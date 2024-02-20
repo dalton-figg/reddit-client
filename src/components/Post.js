@@ -23,7 +23,7 @@ export default function Post(data) {
           </div>
         </div>
       </article>
-      <Modal openModal={openModal} data={data} />
+      <Modal openModal={openModal} setOpenModal={setOpenModal} data={data} />
     </>
   );
 }
