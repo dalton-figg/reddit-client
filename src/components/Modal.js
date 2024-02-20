@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Modal({ openModal, setOpenModal, data }) {
-
   const { title, author, selftext, num_comments, ups, downs } = data;
 
   const closeModal = () => setOpenModal(false);
