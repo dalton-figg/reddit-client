@@ -23,6 +23,7 @@ export default function Sidebar() {
           className="sidebar-select"
           id="selection"
           onChange={handleChange}
+          data-testid="selection"
         >
           {subredditOptions.map((subreddit) => (
             <option key={subreddit} value={subreddit}>
