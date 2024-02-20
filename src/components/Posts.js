@@ -39,11 +39,10 @@ export default function Posts() {
   // improve the efficency by just applying the filter
 
   useEffect(() => {
-    dispatch(
-      changePosts(
-        posts.filter((item) => item.data.title.includes(searchFilter))
-      )
+    const filteredPosts = posts.filter((post) =>
+      post.data.title.includes(searchFilter)
     );
+    dispatch(changePosts(filteredPosts));
   }, [searchFilter]);
 
   // Include a 'loading' screen to breakup the delay
